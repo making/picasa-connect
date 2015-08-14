@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+<div layout:fragment="content">
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Name</th>
+            <th>Method</th>
+            <th>Path</th>
+        </tr>
+        <tr>
+            <td>List Registered Photos</td>
+            <td>GET</td>
+            <td><a th:text="${baseUri} + '/photos'" th:href="${baseUri} + '/photos'"></a></td>
+        </tr>
+        <tr>
+            <td>List Genres</td>
+            <td>GET</td>
+            <td><a th:text="${baseUri} + '/genres'" th:href="${baseUri} + '/genres'"></a></td>
+        </tr>
+        <tr>
+            <td>List Registered Photos by Genre Id</td>
+            <td>GET</td>
+            <td><span th:text="${baseUri} + '/genres/{genreId}/photos'"></span>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
