@@ -64,6 +64,6 @@ public class Photo implements Serializable {
 
 	@Transient
 	public String getSmallThumbnail() {
-		return this.url == null ? "" : this.url.replace("/s1600", "/s200");
+		return this.url == null ? "" : this.url.replace("/s1600", "/s160");
 	}
 }
