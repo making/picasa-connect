@@ -1,5 +1,7 @@
 package am.ik.picasa.google;
 
+import static java.util.Comparator.comparing;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,6 +29,8 @@ public class PicasaService {
 				"https://picasaweb.google.com/data/feed/api/user/default/albumid/"
 						+ albumId + "?imgmax=1600",
 				Feed.class).getBody();
-		return f.getEntries().stream().map(PicasaPhoto::new).collect(Collectors.toList());
+		return f.getEntries().stream().map(PicasaPhoto::new)
+				.sorted(comparing(PicasaPhoto::getShootingDate).reversed())
+				.collect(Collectors.toList());
 	}
 }
